@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Yogesh-sa1n1/MatrixBuildL4/issues"
   },
-  "homepage": "https://github.com/Yogesh-sa1n1/MatrixBuildL4#readme"
+  "homepage": "https://github.com/Yogesh-sa1n1/MatrixBuildL4#readme",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
 }
