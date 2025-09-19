@@ -1,34 +1,31 @@
 name: Nodejs matrix build
 
-on: [push,pull_request]
-
-
+on: [push, pull_request]
 
 jobs:
   matrixbuild:
-    runs-on: ${{matrix.os}}
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        os : [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16,18,20]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16, 18, 20]
 
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Nodejs
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{matrix.node-version}}
+          node-version: ${{ matrix.node-version }}
           
-      - name: install npm
-        run : npm install
+      - name: Install dependencies
+        run: npm install
 
-      - name: test
-        run : npm test
+      - name: Run tests
+        run: npm test
 
       - name: Show environment
         run: |
-          echo "Running on ${{matrix.os}} with node.js ${{matrix.node-version}}"
-      
+          echo "Running on ${{ matrix.os }} with Node.js ${{ matrix.node-version }}"
